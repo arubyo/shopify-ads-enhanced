@@ -1,4 +1,6 @@
-FORKED FROM: https://github.com/TechnicalWebAnalytics/dataLayer-shopify
+Built on top of two different repos to cater towards various tracking set ups and goals.
+https://github.com/TechnicalWebAnalytics/dataLayer-shopify
+https://github.com/finalz/GA4-Shopify-Ecommerce-dataLayer
 
 This is a GTM set up of enhanced ecommerce tracking for Shopify. 
 It includes UA, GA4 and Google Ads - all from GTM. 
