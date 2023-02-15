@@ -35,15 +35,17 @@ Within the theme.liquid layout, place the datalayer snippet directly before the 
 {% include 'dataLayer-allPages' %}
   <Br>
 
-### Add script to checkout page, change the GTM at the bottom** 
+### Add script to checkout page, change the GTM at the bottom
 1. Settings -> Checkout and accounts -> Scroll to bottom to find 'Order status page'
 2. Copy & paste in the checkout-section
 3. Update the GTM variable at the end of the script
   <br>
+
 ### Import container into GTM
 1. Change UA Constant, Variables -> UA Constant
 2. GA4 Constant, Tags -> GA4 Configuration 
 3. If required update the Google Ads tags, there are 2 that need to be updated. Gads User Data and GAds Purchase Tag. 
+<br>
 Test and confirm the data is coming through GA4 correctly. 
   
   
