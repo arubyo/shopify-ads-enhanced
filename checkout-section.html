@@ -1,9 +1,6 @@
-
-
-{% if first_time_accessed %}
 <script>
   var ecommerce = {
-      'transaction_id': '{{checkout.order_number  | json}}',
+      'transaction_id': "{{ order.order_number }}",
       'affiliation': {{shop.name | json}},
       'value': {{checkout.total_price | money_without_currency | replace: ',', '.' | json}},
       'tax': {{checkout.tax_price | money_without_currency | replace: ',','.' | json}},
@@ -15,19 +12,16 @@
       'discount'  : {{discount.amount | money_without_currency | json}},
        {% endfor %}
       'email': {{checkout.email | json}},
-      'items':[{% for line_item in checkout.line_items %}{
-                        'item_id '        : {{line_item.product.id | json}},                  
-                        'item_variant'    : {{line_item.variant.title | json}},             
-                        'item_name '      : {{line_item.product.title | json}},
-                        'price'           : {{line_item.product.price | money_without_currency | replace: ',', '.' | json}},
-                        'item_brand'      : {{line_item.product.vendor | json}},
-                        'item_category'   : {{line_item.product.type | json}},
-                        'item_list_name'  : {{line_item.collection.title | json}},
-                        'quantity'        : {{line_item.quantity | json}},
-                        'discount'		  : {{discount.code | json}}
-                    },{% endfor %}],
+      items: [
+       {% for line_item in line_items %}{
+        item_id: "{{ line_item.product_id }}",
+        item_name: "{{ line_item.title | remove: "'" | remove: '"' }}",
+        currency: "{{ order.currency }}",
+        price: {{ line_item.final_price | times: 0.01 }},
+        quantity: {{ line_item.quantity }}
+      },{% endfor %}
+ ],
   };
-
     var enhanced_conversion_data = {
         "first_name": "{{ billing_address.first_name }}",
         "last_name": "{{billing_address.last_name}}",
@@ -57,4 +51,3 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         enhanced_conversion_data
         });
 </script>
-{% endif %}
