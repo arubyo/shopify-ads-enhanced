@@ -13,13 +13,13 @@ It includes UA, GA4 and Google Ads - all from GTM.
 <br>
 There are three different folders for three different variations of GTM containers, there are different requirements to set up shopify ecommerce tracking. 
 
-[shopify ads](../blob/master/shopify-ads/gtm-ads.json)
+[shopify ads](../blob/master/shopify-ads/gtm-ads.json)<br>
 includes a GTM container that tracks, enhanced user conversions on the purchase event for google ads <br>
 
 [shopify-ads-googleapp](../blob/master/shopify-ads-googleapp/GTM-Ads-Shopify-GoogleApp.json)<br>
 this is still google ads enhanced user conversions on the pruchase however, if shopify account uses the free Google app, it will send through datalayer events automatically and duplicate events (view_item, add_to_cart, purchase). this container separates the duplicates, changes the tag to fire once per page
 
-[shopify-analytics](../blob/master/shopify-analytics/gtm.json)
+[shopify-analytics](../blob/master/shopify-analytics/gtm.json)<br>
 this set up is pure UA and GA4 enhanced ecommerce 
 <Br><br><br>
 
