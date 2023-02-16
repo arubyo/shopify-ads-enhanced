@@ -16,7 +16,7 @@
           'items':[{% for line_item in checkout.line_items %}{
                             'item_id '        : {{line_item.product.id | json}},
                             'item_variant'    : {{line_item.variant.title | json}},
-                            'item_name '      : { line_item.title | remove: "'" | remove: '"' }},
+                            'item_name '      : {{line_item.title | remove: "'" | remove: '"' }},
                             'price'           : {{line_item.product.price | money_without_currency | replace: ',', '.' | json}},
                             'item_brand'      : {{line_item.product.vendor | json}},
                             'item_category'   : {{line_item.product.type | json}},
